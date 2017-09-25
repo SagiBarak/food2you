@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "810210561840",
+    "firebase_url": "https://food2you-295ab.firebaseio.com",
+    "project_id": "food2you-295ab",
+    "storage_bucket": "food2you-295ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:810210561840:android:03044a1babef1a18",
+        "android_client_info": {
+          "package_name": "com.sagib.food2you"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "810210561840-t3crb85j9ctfnkabupqqigkqsvob81av.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sagib.food2you",
+            "certificate_hash": "ddd75a478065f2b0d11e66e24992a6c5fe77f5d5"
+          }
+        },
+        {
+          "client_id": "810210561840-lduslsi9rskkarrlhpcff68n9kvdk240.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIMqgU73mOutNHZRpElWFix44WkCvwUlI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "810210561840-lduslsi9rskkarrlhpcff68n9kvdk240.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
