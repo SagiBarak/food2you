@@ -39,6 +39,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
+import static com.sagib.food2you.R.drawable.food;
+
 public class OrderLandingFragment extends Fragment {
 
 
@@ -158,7 +160,7 @@ public class OrderLandingFragment extends Fragment {
                     count++;
                 }
             }
-            if (count == size){
+            if (count == size) {
                 isNew = true;
             }
             if (isNew) {
@@ -341,6 +343,29 @@ public class OrderLandingFragment extends Fragment {
             holder.ivMinus.setOnClickListener(minusL);
             if (product.getQty() < 2) {
                 holder.ivMinus.setOnClickListener(null);
+            }
+            switch (product.getFood().getName()) {
+                case "ג׳חנון":
+                    holder.ivFoodImg.setImageResource(food);
+                    break;
+                case "בקבוק שתיה 1.5 ל׳":
+                    holder.ivFoodImg.setImageResource(R.drawable.cola);
+                    break;
+                case "תוספת ביצה":
+                    holder.ivFoodImg.setImageResource(R.drawable.egg);
+                    break;
+                case "חומוס/טחינה אישי":
+                    holder.ivFoodImg.setImageResource(R.drawable.hummus);
+                    break;
+                case "מלוואח":
+                    holder.ivFoodImg.setImageResource(R.drawable.malawach);
+                    break;
+                case "מלוואח מגולגל":
+                    holder.ivFoodImg.setImageResource(R.drawable.mwrap);
+                    break;
+                case "מלוואח גבינות מגולגל":
+                    holder.ivFoodImg.setImageResource(R.drawable.mwrapwh);
+                    break;
             }
         }
 
