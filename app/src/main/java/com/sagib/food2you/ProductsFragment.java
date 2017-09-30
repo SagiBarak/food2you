@@ -12,7 +12,6 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -159,7 +158,6 @@ public class ProductsFragment extends Fragment {
                     Bundle args = new Bundle();
                     args.putParcelable("Product", product);
                     orderLandingFragment.setArguments(args);
-                    Log.d("SagiB", product.toString());
                     fragment.getFragmentManager().beginTransaction().replace(R.id.content, orderLandingFragment).commit();
                 }
             });

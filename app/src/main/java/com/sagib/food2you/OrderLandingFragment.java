@@ -15,7 +15,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -135,10 +134,8 @@ public class OrderLandingFragment extends Fragment {
         }
         Bundle bundle = getArguments();
         if (bundle != null) {
-            Log.d("SagiB", "not null");
             boolean isNew = true;
             newProduct = getArguments().getParcelable("Product");
-            Log.d("SagiB", "new" + newProduct.toString());
             int size = products.size();
             int count = 0;
             for (Product product : products) {
@@ -154,9 +151,7 @@ public class OrderLandingFragment extends Fragment {
                     product.setProductPrice(newPrice);
                     products.set(idx, product);
                     isNew = false;
-                    Log.d("SagiB", "Old");
                 } else {
-                    Log.d("SagiB", "New");
                     count++;
                 }
             }
@@ -165,7 +160,6 @@ public class OrderLandingFragment extends Fragment {
             }
             if (isNew) {
                 products.add(newProduct);
-                Log.d("SagiB", "New");
             }
         }
         if (products.size() > 0) {
@@ -274,7 +268,6 @@ public class OrderLandingFragment extends Fragment {
             if (product.isHasAddon()) {
                 productPrice += 3;
             }
-            Log.d("SagiB", String.valueOf(productPrice));
             holder.tvFoodName.setText(product.getFood().getName());
             int totalPrice = product.getProductPrice();
             holder.tvPrice.setText("₪" + String.valueOf(totalPrice));
@@ -308,8 +301,6 @@ public class OrderLandingFragment extends Fragment {
                     if (newQty < 2) {
                         holder.ivMinus.setOnClickListener(null);
                     }
-                    Log.d("SagiB", String.valueOf(productPrice));
-                    Log.d("SagiB", String.valueOf(productPrice * newQty));
                     int newPrice = productPrice * newQty;
                     holder.tvPrice.setText("₪" + String.valueOf(newPrice));
                     Intent intent = new Intent("UpdateQty");
@@ -330,8 +321,6 @@ public class OrderLandingFragment extends Fragment {
                     if (newQty < 2) {
                         holder.ivMinus.setOnClickListener(null);
                     }
-                    Log.d("SagiB", String.valueOf(productPrice));
-                    Log.d("SagiB", String.valueOf(productPrice * newQty));
                     int newPrice = productPrice * newQty;
                     holder.tvPrice.setText("₪" + String.valueOf(newPrice));
                     Intent intent = new Intent("UpdateQty");
