@@ -3,10 +3,6 @@ package com.sagib.food2you.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * Created by sagib on 09/09/2017.
- */
-
 public class Product implements Parcelable {
     Food food;
     boolean hasAddon;
@@ -15,16 +11,19 @@ public class Product implements Parcelable {
     String notes;
     int qty;
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "food=" + food +
-                ", hasAddon=" + hasAddon +
-                ", productPrice=" + productPrice +
-                ", fixed=" + fixed +
-                ", notes='" + notes + '\'' +
-                ", qty=" + qty +
-                '}';
+    public Product(Food food, boolean hasAddon, int productPrice, boolean fixed, String notes, int qty) {
+        this.food = food;
+        this.hasAddon = hasAddon;
+        this.productPrice = productPrice;
+        this.fixed = fixed;
+        this.notes = notes;
+        this.qty = qty;
+        if (hasAddon)
+            this.productPrice = (food.getPrice() + 3) * qty;
+        if (!hasAddon)
+            this.productPrice = food.getPrice() * qty;
+
+
     }
 
     public boolean isFixed() {
@@ -51,21 +50,6 @@ public class Product implements Parcelable {
         this.qty = qty;
     }
 
-    public Product(Food food, boolean hasAddon, int productPrice, boolean fixed, String notes, int qty) {
-        this.food = food;
-        this.hasAddon = hasAddon;
-        this.productPrice = productPrice;
-        this.fixed = fixed;
-        this.notes = notes;
-        this.qty = qty;
-        if (hasAddon)
-            this.productPrice = (food.getPrice() + 3) * qty;
-        if (!hasAddon)
-            this.productPrice = food.getPrice() * qty;
-
-
-    }
-
     public Food getFood() {
         return food;
     }
@@ -90,6 +74,17 @@ public class Product implements Parcelable {
         this.productPrice = productPrice;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "food=" + food +
+                ", hasAddon=" + hasAddon +
+                ", productPrice=" + productPrice +
+                ", fixed=" + fixed +
+                ", notes='" + notes + '\'' +
+                ", qty=" + qty +
+                '}';
+    }
 
     @Override
     public int describeContents() {

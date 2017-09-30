@@ -3,10 +3,6 @@ package com.sagib.food2you.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * Created by sagib on 09/09/2017.
- */
-
 public class Food implements Parcelable {
     String name;
     String description;
@@ -14,15 +10,13 @@ public class Food implements Parcelable {
     String imgUrl;
     boolean isAddonAvailable;
 
-    @Override
-    public String toString() {
-        return "Food{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", imgUrl='" + imgUrl + '\'' +
-                ", isAddonAvailable=" + isAddonAvailable +
-                '}';
+    public Food(String name, String description, int price, String imgUrl, boolean isAddonAvailable) {
+
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.imgUrl = imgUrl;
+        this.isAddonAvailable = isAddonAvailable;
     }
 
     public String getName() {
@@ -65,13 +59,15 @@ public class Food implements Parcelable {
         isAddonAvailable = addonAvailable;
     }
 
-    public Food(String name, String description, int price, String imgUrl, boolean isAddonAvailable) {
-
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.imgUrl = imgUrl;
-        this.isAddonAvailable = isAddonAvailable;
+    @Override
+    public String toString() {
+        return "Food{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", isAddonAvailable=" + isAddonAvailable +
+                '}';
     }
 
     @Override

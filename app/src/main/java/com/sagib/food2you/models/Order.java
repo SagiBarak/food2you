@@ -5,10 +5,6 @@ import android.os.Parcelable;
 
 import java.util.ArrayList;
 
-/**
- * Created by sagib on 09/09/2017.
- */
-
 public class Order implements Parcelable {
     String fullName;
     String phoneNumber;
@@ -25,51 +21,6 @@ public class Order implements Parcelable {
     int totalPrice;
     String orderUID;
     String orderNumber;
-
-    public String getFutureDate() {
-        return futureDate;
-    }
-
-    public void setFutureDate(String futureDate) {
-        this.futureDate = futureDate;
-    }
-
-    public String getOrderUID() {
-        return orderUID;
-    }
-
-    public void setOrderUID(String orderUID) {
-        this.orderUID = orderUID;
-    }
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "fullName='" + fullName + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", address='" + address + '\'' +
-                ", houseNumber='" + houseNumber + '\'' +
-                ", aptNumber='" + aptNumber + '\'' +
-                ", floorNumber='" + floorNumber + '\'' +
-                ", city='" + city + '\'' +
-                ", futureHour='" + futureHour + '\'' +
-                ", futureDate='" + futureDate + '\'' +
-                ", orderTime='" + orderTime + '\'' +
-                ", notes='" + notes + '\'' +
-                ", products=" + products +
-                ", totalPrice=" + totalPrice +
-                ", orderUID='" + orderUID + '\'' +
-                ", orderNumber='" + orderNumber + '\'' +
-                '}';
-    }
-
-    public String getOrderNumber() {
-        return orderNumber;
-    }
-
-    public void setOrderNumber(String orderNumber) {
-        this.orderNumber = orderNumber;
-    }
 
     public Order(String fullName, String phoneNumber, String address, String houseNumber, String aptNumber, String floorNumber, String city, String futureHour, String futureDate, String orderTime, String notes, ArrayList<Product> products, int totalPrice, String orderUID, String orderNumber) {
         this.fullName = fullName;
@@ -89,6 +40,30 @@ public class Order implements Parcelable {
         this.orderNumber = orderNumber;
 
 
+    }
+
+    public String getFutureDate() {
+        return futureDate;
+    }
+
+    public void setFutureDate(String futureDate) {
+        this.futureDate = futureDate;
+    }
+
+    public String getOrderUID() {
+        return orderUID;
+    }
+
+    public void setOrderUID(String orderUID) {
+        this.orderUID = orderUID;
+    }
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
     }
 
     public String getFullName() {
@@ -187,6 +162,26 @@ public class Order implements Parcelable {
         this.totalPrice = totalPrice;
     }
 
+    @Override
+    public String toString() {
+        return "Order{" +
+                "fullName='" + fullName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", address='" + address + '\'' +
+                ", houseNumber='" + houseNumber + '\'' +
+                ", aptNumber='" + aptNumber + '\'' +
+                ", floorNumber='" + floorNumber + '\'' +
+                ", city='" + city + '\'' +
+                ", futureHour='" + futureHour + '\'' +
+                ", futureDate='" + futureDate + '\'' +
+                ", orderTime='" + orderTime + '\'' +
+                ", notes='" + notes + '\'' +
+                ", products=" + products +
+                ", totalPrice=" + totalPrice +
+                ", orderUID='" + orderUID + '\'' +
+                ", orderNumber='" + orderNumber + '\'' +
+                '}';
+    }
 
     @Override
     public int describeContents() {

@@ -9,20 +9,22 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.google.gson.Gson;
 import com.sagib.food2you.models.Food;
 import com.sagib.food2you.models.Product;
 
@@ -39,7 +41,6 @@ public class ProductsFragment extends Fragment {
     @BindView(R.id.rvProductsList)
     RecyclerView rvProductsList;
     Unbinder unbinder;
-    Gson gson = new Gson();
     SharedPreferences prefs;
 
     @Override
@@ -63,8 +64,22 @@ public class ProductsFragment extends Fragment {
 
     @Override
     public void onResume() {
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("ביצוע הזמנה - תפריט");
+        setTitle("תפריט");
         super.onResume();
+    }
+
+    public void setTitle(String title) {
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        TextView textView = new TextView(getActivity());
+        textView.setText(title);
+        textView.setTextSize(20);
+        textView.setTypeface(null, Typeface.BOLD);
+        textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        textView.setGravity(Gravity.CENTER);
+        textView.setTextColor(Color.WHITE);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setCustomView(textView);
     }
 
     public ArrayList<Food> getFoodList() {

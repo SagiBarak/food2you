@@ -133,13 +133,6 @@ public class FinalFragment extends Fragment {
                 c.add(Calendar.DAY_OF_MONTH, 1);
             }
         }
-        String testString = String.valueOf(c.get(Calendar.DAY_OF_MONTH)) + "/" + String.valueOf(c.get(Calendar.MONTH) + 1) + "/" + String.valueOf(c.get(Calendar.YEAR));
-        if (testString.equals("30/9/2017")) {
-            c.add(Calendar.DAY_OF_MONTH, 1);
-            while (c.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY) {
-                c.add(Calendar.DAY_OF_MONTH, 1);
-            }
-        }
         if (today.get(Calendar.DAY_OF_MONTH) == c.get(Calendar.DAY_OF_MONTH) && today.get(Calendar.MONTH) == c.get(Calendar.MONTH) && today.get(Calendar.YEAR) == c.get(Calendar.YEAR)) {
             sHour.setAdapter(getHoursSpinner());
         }
@@ -190,7 +183,6 @@ public class FinalFragment extends Fragment {
 
     @Override
     public void onResume() {
-//        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("ג׳חנון ביתי - עד הבית");
         setTitle("ביצוע הזמנה - משלוח");
         super.onResume();
     }
