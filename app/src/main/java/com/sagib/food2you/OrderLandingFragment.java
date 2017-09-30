@@ -192,6 +192,7 @@ public class OrderLandingFragment extends Fragment {
         LocalBroadcastManager.getInstance(getContext()).registerReceiver(receiver, filter);
         IntentFilter updateQtyF = new IntentFilter("UpdateQty");
         LocalBroadcastManager.getInstance(getContext()).registerReceiver(updateQtyRec, updateQtyF);
+        LocalBroadcastManager.getInstance(getContext()).sendBroadcast(new Intent("OrderFragment"));
         return v;
     }
 

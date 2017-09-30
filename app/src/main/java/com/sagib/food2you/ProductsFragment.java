@@ -2,11 +2,13 @@ package com.sagib.food2you;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -50,6 +52,7 @@ public class ProductsFragment extends Fragment {
         ProductsAdapter adapter = new ProductsAdapter(getFoodList(), this);
         rvProductsList.setAdapter(adapter);
         rvProductsList.setLayoutManager(new LinearLayoutManager(getContext()));
+        LocalBroadcastManager.getInstance(getContext()).sendBroadcast(new Intent("ProductsFragment"));
         return v;
     }
 
