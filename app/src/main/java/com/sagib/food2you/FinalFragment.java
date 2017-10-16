@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TextInputLayout;
@@ -254,14 +255,28 @@ public class FinalFragment extends Fragment {
                                 show.dismiss();
                                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                                 builder.setMessage("ההזמנה נשלחה בהצלחה!" + "\nתודה שבחרת בג׳חנון ביתי - עד הבית!\nבתאבון!");
-                                builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                                final AlertDialog alert = builder.create();
+                                alert.show();
+                                final Handler handler = new Handler();
+                                final Runnable runnable = new Runnable() {
                                     @Override
-                                    public void onDismiss(DialogInterface dialogInterface) {
+                                    public void run() {
+                                        if (alert.isShowing()) {
+                                            alert.dismiss();
+                                        }
+                                    }
+                                };
+
+                                alert.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                                    @Override
+                                    public void onDismiss(DialogInterface dialog) {
+                                        handler.removeCallbacks(runnable);
                                         BottomNavigationView navigation = (BottomNavigationView) ((AppCompatActivity) getActivity()).findViewById(R.id.navigation);
                                         navigation.setSelectedItemId(R.id.navigation_info);
                                     }
                                 });
-                                builder.show();
+                                handler.postDelayed(runnable, 2800);
+
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
@@ -269,6 +284,25 @@ public class FinalFragment extends Fragment {
                                 show.dismiss();
                                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                                 builder.setMessage("לצערנו, ארעה תקלה במהלך הפעולה.\nאנא נסה שנית.");
+                                final AlertDialog alert = builder.create();
+                                alert.show();
+                                final Handler handler = new Handler();
+                                final Runnable runnable = new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        if (alert.isShowing()) {
+                                            alert.dismiss();
+                                        }
+                                    }
+                                };
+
+                                alert.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                                    @Override
+                                    public void onDismiss(DialogInterface dialog) {
+                                        handler.removeCallbacks(runnable);
+                                    }
+                                });
+                                handler.postDelayed(runnable, 2800);
                             }
                         });
 

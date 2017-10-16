@@ -27,14 +27,14 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_info:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.content, new InfoFragment(), "Info").commit();
-                    return true;
                 case R.id.navigation_food:
                     getSupportFragmentManager().beginTransaction().replace(R.id.content, new ProductsFragment(), "Products").commit();
                     return true;
                 case R.id.navigation_order:
                     getSupportFragmentManager().beginTransaction().replace(R.id.content, new OrderLandingFragment(), "Order").commit();
+                    return true;
+                case R.id.navigation_info:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.content, new InfoFragment(), "Info").commit();
                     return true;
             }
             return false;
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
         navigation.setBackgroundColor(Color.argb(255, 255, 137, 64));
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.content, new InfoFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.content, new ProductsFragment()).commit();
     }
 
     @Override
